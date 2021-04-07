@@ -4,13 +4,50 @@ My first attempt at emulation. This Go project aims to emulate a fully working C
 
 Everything works as far as I have tested, except for audio.
 
-**TODO (In no particular order):**
-- Comment code
+## Controls
+ Keys
+
+ ---
+ 
+ <table cellspacing="0" cellpadding="3" border="1">
+			<tbody><tr><td><tt>1</tt></td><td><tt>2</tt></td><td><tt>3</tt></td><td><tt>4</tt></td></tr>
+			<tr><td><tt>Q</tt></td><td><tt>W</tt></td><td><tt>E</tt></td><td><tt>R</tt></td></tr>
+			<tr><td><tt>A</tt></td><td><tt>S</tt></td><td><tt>D</tt></td><td><tt>F</tt></td></tr>
+			<tr><td><tt>Z</tt></td><td><tt>X</tt></td><td><tt>C</tt></td><td><tt>V</tt></td></tr>
+</tbody></table>
+
+ map to
+
+ <table cellspacing="0" cellpadding="3" border="1">
+			<tbody><tr><td><tt>1</tt></td><td><tt>2</tt></td><td><tt>3</tt></td><td><tt>C</tt></td></tr>
+			<tr><td><tt>4</tt></td><td><tt>5</tt></td><td><tt>6</tt></td><td><tt>D</tt></td></tr>
+			<tr><td><tt>7</tt></td><td><tt>8</tt></td><td><tt>9</tt></td><td><tt>E</tt></td></tr>
+			<tr><td><tt>A</tt></td><td><tt>0</tt></td><td><tt>B</tt></td><td><tt>F</tt></td></tr>
+</tbody></table>
+
+respectively
+
+---
+
+## Screenshots
+
+
+| Brick                             | Connect 4                     | Pong                   |
+|-----------------------------------|-------------------------------|------------------------|
+| ![](./gifs/brick.gif)             | ![](./gifs/connect4.gif)      | ![](./gifs/pong.gif)   |
+
+| Rock Paper Scissors               | Space Invaders                | Tetris                 |
+|-----------------------------------|-------------------------------|------------------------|
+| ![](./gifs/rockpaperscissors.gif) | ![](./gifs/spaceinvaders.gif) | ![](./gifs/tetris.gif) |
+
+
+## TODO (in no particular order):
 - Create a way to customize controls and settings (maybe using config files, maybe some GUI)
 - Add more invasive features (e.g. Soft reset, Hard reset, memory manipulation, etc.)
+- Implement VIP/Super chip8
 - Implement audio (needs a better understanding of goroutines and channels)
 
-### Credits
+## Credits
 
 - Thanks to CowGod a.k.a. [Thomas P. Greene](mailto:cowgod@rockpile.com) for their extremely helpful chip8 documentation!
 

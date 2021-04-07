@@ -5,7 +5,7 @@ import (
 )
 
 // Adjust these according to your game/preferences
-const SCALING = 20
+const SCALING = 15
 const FPS = 60
 const speed = 10
 
