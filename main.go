@@ -19,8 +19,7 @@ func main() {
 	startTime = then
 
 	loadSprites()
-	loadROM("ROMs/KEYTEST.ch8")
-	// hexdump(memory[:])
+	loadROM("ROMs/SPACEINVADERS.ch8")
 	step()
 	startDisplay()
 }

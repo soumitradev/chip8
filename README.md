@@ -6,8 +6,6 @@ Everything works as far as I have tested, except for audio.
 
 **TODO (In no particular order):**
 - Comment code
-- Optimize switch statement for CPU
-- Test more ROMs
 - Create a way to customize controls and settings (maybe using config files, maybe some GUI)
 - Add more invasive features (e.g. Soft reset, Hard reset, memory manipulation, etc.)
 - Implement audio (needs a better understanding of goroutines and channels)
