@@ -4,6 +4,23 @@ My first attempt at emulation. This Go project aims to emulate a fully working C
 
 Everything works as far as I have tested, except for audio.
 
+## Usage
+```
+Usage: chip8 [--scaling SCALING] [--fps FPS] [--cpuspeed CPUSPEED] ROMPATH
+
+Positional arguments:
+  ROMPATH                Path to CHIP8 ROM file.
+
+Options:
+  --scaling SCALING, -s SCALING
+                         Pixel scaling. Adjusts size of display. [default: 15]
+  --fps FPS, -f FPS      FPS to run display at. [default: 60]
+  --cpuspeed CPUSPEED, -c CPUSPEED
+                         Speed of CPU relative to FPS. [default: 10]
+  --help, -h             display this help and exit
+  --version              display version and exit
+```
+
 ## Controls
  Keys
 
@@ -42,7 +59,6 @@ respectively
 
 
 ## TODO (in no particular order):
-- Create a way to customize controls and settings (maybe using config files, maybe some GUI)
 - Add more invasive features (e.g. Soft reset, Hard reset, memory manipulation, etc.)
 - Implement VIP/Super chip8
 - Implement audio (needs a better understanding of goroutines and channels)

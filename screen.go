@@ -83,7 +83,7 @@ func run() {
 	// Configure window
 	cfg := pixelgl.WindowConfig{
 		Title:  "Chip8",
-		Bounds: pixel.R(0, 0, 64*SCALING, 32*SCALING),
+		Bounds: pixel.R(0, 0, float64(64*SCALING), float64(32*SCALING)),
 		VSync:  true,
 	}
 	window, err := pixelgl.NewWindow(cfg)
@@ -134,10 +134,10 @@ func screenRender() {
 	imd.Clear()
 	for i := 0; i < 64*32; i++ {
 		x := float64((i % 64) * SCALING)
-		y := 31*SCALING - float64((i/64)*SCALING)
+		y := float64(31*SCALING - (i/64)*SCALING)
 		if display[i] {
 			imd.Push(pixel.V(x, y))
-			imd.Push(pixel.V(x+SCALING, y+SCALING))
+			imd.Push(pixel.V(x+float64(SCALING), y+float64(SCALING)))
 			imd.Rectangle(0)
 		}
 	}
