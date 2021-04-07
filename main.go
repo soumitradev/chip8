@@ -1,6 +1,8 @@
 package main
 
-import "time"
+import (
+	"time"
+)
 
 const SCALING = 20
 const FPS = 60
@@ -17,7 +19,8 @@ func main() {
 	startTime = then
 
 	loadSprites()
-	loadROM("ROMs/BLINKY")
+	loadROM("ROMs/TEST.ch8")
+	hexdump(memory[:])
 	step()
 	startDisplay()
 }

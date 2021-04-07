@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
 	"os"
 )
@@ -23,6 +22,7 @@ var paused = false
 var speed = 10
 
 func loadSprites() {
+	// Font sprites
 	sprites := [...]uint8{
 		0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
 		0x20, 0x60, 0x20, 0x20, 0x70, // 1
@@ -47,8 +47,8 @@ func loadSprites() {
 }
 
 func loadProgram(program []uint8) {
-	for i := 0x200; i < len(program); i++ {
-		memory[i] = program[i]
+	for i := 0; i < len(program); i++ {
+		memory[0x200+i] = program[i]
 	}
 }
 
@@ -63,7 +63,6 @@ func loadROM(romPath string) {
 func cycle() {
 	for i := 0; i < speed; i++ {
 		if !paused {
-			fmt.Printf("%d\n%v\n%v", ip, stack, registers)
 			opcode := ((uint(memory[ip]) << 8) | uint(memory[ip+1]))
 			executeInstruction(opcode)
 		}
@@ -83,7 +82,6 @@ func executeInstruction(opcode uint) {
 	x := (opcode & 0x0F00) >> 8
 	y := (opcode & 0x00F0) >> 4
 	n := (opcode & 0xF000)
-
 	switch n {
 	case 0x0000:
 		switch opcode {

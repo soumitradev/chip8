@@ -116,7 +116,7 @@ func startDisplay() {
 func screenRender() {
 	for i := 0; i < 64*32; i++ {
 		x := float64((i % 64) * SCALING)
-		y := float64((i / 64) * SCALING)
+		y := 31*SCALING - float64((i/64)*SCALING)
 		if display[i] {
 			imd.Push(pixel.V(x, y))
 			imd.Push(pixel.V(x+SCALING, y+SCALING))
@@ -127,11 +127,6 @@ func screenRender() {
 
 func testRender() {
 	setPixel(0, 0)
-	setPixel(1, 1)
-	setPixel(4, 6)
-	setPixel(7, 0)
-	setPixel(0, 15)
-	setPixel(31, 15)
 	setPixel(63, 31)
 }
 
