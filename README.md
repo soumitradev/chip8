@@ -5,20 +5,6 @@ My first attempt at emulation. This Go project aims to emulate a fully working C
 Everything works as far as I have tested, except for audio.
 
 **TODO (In no particular order):**
-
-- Test every CPU instruction:
-
-    Not Tested/Implemented:
-    - 0NNN
-    - 00E0
-    - 2NNN
-    - DXYN
-    - EX9E
-    - EXA1
-    - FX0A
-    - FX18
-    - FX29
-        
 - Comment code
 - Optimize switch statement for CPU
 - Test more ROMs

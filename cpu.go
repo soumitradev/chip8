@@ -47,6 +47,9 @@ func loadSprites() {
 }
 
 func loadProgram(program []uint8) {
+	if len(program) > (0xE00) {
+		panic("Program too large!")
+	}
 	for i := 0; i < len(program); i++ {
 		memory[0x200+i] = program[i]
 	}
@@ -187,7 +190,6 @@ func executeInstruction(opcode uint) {
 		width := 8
 		height := int(opcode & 0xF)
 		registers[0xF] = 0
-
 		for row := 0; row < height; row++ {
 			sprite := memory[int(mem_register)+row]
 
