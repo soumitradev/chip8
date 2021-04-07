@@ -1,5 +1,6 @@
 package main
 
+// Play a sound while soundTimer lasts
 func playSound() {
 	if soundTimer > 0 {
 		playFreq(440)
@@ -8,10 +9,12 @@ func playSound() {
 	}
 }
 
+// Play a specfic frequency
 func playFreq(freq int) {
 
 }
 
+// Stop playing a frequency
 func stopFreq() {
 
 }

@@ -45,6 +45,7 @@ func hexdump(dump []uint8) {
 // graphicsdump prints a dump of the graphics memory
 func graphicsdump(dump []bool) {
 	fmt.Print("\n\n")
+	// Loop through pixels and dump to console
 	for i := 0; i < 32; i++ {
 		for j := 0; j < 64; j++ {
 			if dump[i*64+j] {

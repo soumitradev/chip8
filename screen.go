@@ -7,11 +7,19 @@ import (
 	"golang.org/x/image/colornames"
 )
 
+// Allocate memory for graphics
 var display = [64 * 32]bool{}
+
+// Create a IMD drawing object
 var imd = imdraw.New(nil)
 
+// Function that acts as a keyboard event listener
 var onNextPress func(uint8)
+
+// Create window
 var window pixelgl.Window
+
+// Declare variable maps for controls
 var CONTROLS = []pixelgl.Button{
 	pixelgl.Key1,
 	pixelgl.Key2,
@@ -30,6 +38,7 @@ var CONTROLS = []pixelgl.Button{
 	pixelgl.KeyC,
 	pixelgl.KeyV,
 }
+
 var keysDown = make(map[uint8]bool)
 
 var KEYMAP = map[uint8]pixelgl.Button{
@@ -69,7 +78,9 @@ var KEYMAP_REV = map[string]uint8{
 	pixelgl.KeyV.String(): 0xF,
 }
 
+// Run the graphics emulation via pixel
 func run() {
+	// Configure window
 	cfg := pixelgl.WindowConfig{
 		Title:  "Chip8",
 		Bounds: pixel.R(0, 0, 64*SCALING, 32*SCALING),
@@ -79,10 +90,13 @@ func run() {
 	if err != nil {
 		panic(err)
 	}
+
+	// Set ON pixel color to white
 	imd.Color = pixel.RGB(1, 1, 1)
 
+	// Update every frame
 	for !window.Closed() {
-
+		// Handle keyboard events
 		for _, key := range CONTROLS {
 			if window.Pressed(key) {
 				keysDown[KEYMAP_REV[key.String()]] = true
@@ -95,21 +109,27 @@ func run() {
 				keysDown[KEYMAP_REV[key.String()]] = false
 			}
 		}
+		// Take next step forward
 		step()
+
+		//	Clear window and draw the pixels
 		window.Clear(colornames.Black)
 		imd.Draw(window)
 		window.Update()
 	}
 }
 
+// Check if key is currently down
 func isKeyPressed(keycode uint8) bool {
 	return keysDown[keycode]
 }
 
+// Start display
 func startDisplay() {
 	pixelgl.Run(run)
 }
 
+// Render pixels on display according to graphics memory
 func screenRender() {
 	imd.Clear()
 	for i := 0; i < 64*32; i++ {
@@ -123,11 +143,13 @@ func screenRender() {
 	}
 }
 
+// Dummy test render frunction
 func testRender() {
 	setPixel(0, 0)
 	setPixel(63, 31)
 }
 
+// Set pixel on at x, y coords from top left corner
 func setPixel(x int, y int) bool {
 	if x >= 64 {
 		x -= 64
@@ -145,6 +167,7 @@ func setPixel(x int, y int) bool {
 	return !display[pixelLoc]
 }
 
+// Clear screen
 func clearScreen() {
 	display = [64 * 32]bool{}
 }
