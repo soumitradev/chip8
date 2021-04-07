@@ -9,7 +9,7 @@ Everything works as far as I have tested, except for audio.
 
  ---
  
- <table cellspacing="0" cellpadding="3" border="1" align="left">
+ <table cellspacing="0" cellpadding="3" border="1">
 			<tbody><tr><td><tt>1</tt></td><td><tt>2</tt></td><td><tt>3</tt></td><td><tt>4</tt></td></tr>
 			<tr><td><tt>Q</tt></td><td><tt>W</tt></td><td><tt>E</tt></td><td><tt>R</tt></td></tr>
 			<tr><td><tt>A</tt></td><td><tt>S</tt></td><td><tt>D</tt></td><td><tt>F</tt></td></tr>
@@ -18,7 +18,7 @@ Everything works as far as I have tested, except for audio.
 
  map to
 
- <table cellspacing="0" cellpadding="3" border="1" align="right">
+ <table cellspacing="0" cellpadding="3" border="1">
 			<tbody><tr><td><tt>1</tt></td><td><tt>2</tt></td><td><tt>3</tt></td><td><tt>C</tt></td></tr>
 			<tr><td><tt>4</tt></td><td><tt>5</tt></td><td><tt>6</tt></td><td><tt>D</tt></td></tr>
 			<tr><td><tt>7</tt></td><td><tt>8</tt></td><td><tt>9</tt></td><td><tt>E</tt></td></tr>
