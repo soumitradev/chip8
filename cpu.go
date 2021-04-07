@@ -136,12 +136,12 @@ func executeInstruction(opcode uint) {
 			registers[x] ^= registers[y]
 			break
 		case 0x4:
-			sum := registers[x] + registers[y]
+			sum := uint(registers[x]) + uint(registers[y])
 			registers[0xF] = 0
 			if sum > 0xFF {
 				registers[0xF] = 1
 			}
-			registers[x] = sum
+			registers[x] = uint8(sum)
 			break
 		case 0x5:
 			registers[0xF] = 0
@@ -162,7 +162,8 @@ func executeInstruction(opcode uint) {
 			registers[x] = registers[y] - registers[x]
 			break
 		case 0xE:
-			registers[0xF] = registers[x] & 0x80
+			// WARNING: DOCS FAULTY ON THIS ONE. REFER http://devernay.free.fr/hacks/chip8/C8TECH10.HTM#8xyE FOR CORRECT VERSION
+			registers[0xF] = ((registers[x] >> 7) & 1)
 			registers[x] <<= 1
 			break
 		}

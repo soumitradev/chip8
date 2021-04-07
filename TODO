@@ -1,3 +1,15 @@
-- Look into if ROM is loading correctly and correct instructions are being used
-- Test every CPU instruction
+- Test every CPU instruction:
+    Not Tested:
+        - 0NNN
+        - 00E0
+        - 00EE
+        - 1NNN
+        - 2NNN
+        - DXYN
+        - EX9E
+        - EXA1
+        - FX0A
+        - FX18
+        - FX29
 - Comment code
+- Implement audio

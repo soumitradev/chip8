@@ -19,8 +19,8 @@ func main() {
 	startTime = then
 
 	loadSprites()
-	loadROM("ROMs/TEST.ch8")
-	hexdump(memory[:])
+	loadROM("ROMs/TEST1.ch8")
+	// hexdump(memory[:])
 	step()
 	startDisplay()
 }
