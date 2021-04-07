@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/imdraw"
 	"github.com/faiface/pixel/pixelgl"
@@ -93,7 +91,6 @@ func run() {
 					onNextPress(uint8(KEYMAP_REV[key.String()]))
 					onNextPress = nil
 				}
-				fmt.Printf("%v is pressed rn\n", key.String())
 			} else {
 				keysDown[KEYMAP_REV[key.String()]] = false
 			}
@@ -114,6 +111,7 @@ func startDisplay() {
 }
 
 func screenRender() {
+	imd.Clear()
 	for i := 0; i < 64*32; i++ {
 		x := float64((i % 64) * SCALING)
 		y := 31*SCALING - float64((i/64)*SCALING)

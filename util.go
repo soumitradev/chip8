@@ -5,10 +5,10 @@ import (
 )
 
 // Pops an item off a list and returns both
-func pop(i int, xs []uint8) (uint, []uint8) {
+func pop(i int, xs []uint16) (uint16, []uint16) {
 	y := xs[i]
 	ys := append(xs[:i], xs[i+1:]...)
-	return uint(y), ys
+	return uint16(y), ys
 }
 
 // hexdump prints a hex dump of the data given
@@ -39,5 +39,21 @@ func hexdump(dump []uint8) {
 		}
 	}
 	// Newline at the end
+	fmt.Println()
+}
+
+// graphicsdump prints a dump of the graphics memory
+func graphicsdump(dump []bool) {
+	fmt.Print("\n\n")
+	for i := 0; i < 32; i++ {
+		for j := 0; j < 64; j++ {
+			if dump[i*64+j] {
+				fmt.Print("1")
+			} else {
+				fmt.Print("0")
+			}
+		}
+		fmt.Println()
+	}
 	fmt.Println()
 }

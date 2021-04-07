@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-const SCALING = 20
+const SCALING = 10
 const FPS = 60
 
 var startTime time.Time
@@ -19,7 +19,7 @@ func main() {
 	startTime = then
 
 	loadSprites()
-	loadROM("ROMs/TEST1.ch8")
+	loadROM("ROMs/KEYTEST.ch8")
 	// hexdump(memory[:])
 	step()
 	startDisplay()

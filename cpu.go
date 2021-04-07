@@ -13,9 +13,9 @@ var mem_register uint = 0 // i
 var delayTimer uint = 0
 var soundTimer uint = 0
 
-var ip uint = 0x200
+var ip uint16 = 0x200
 
-var stack = []uint8{}
+var stack = []uint16{}
 
 var paused = false
 
@@ -94,11 +94,11 @@ func executeInstruction(opcode uint) {
 		}
 		break
 	case 0x1000:
-		ip = uint(opcode & 0xFFF)
+		ip = uint16(opcode & 0xFFF)
 		break
 	case 0x2000:
-		stack = append(stack, uint8(ip))
-		ip = opcode & 0xFFF
+		stack = append(stack, ip)
+		ip = uint16(opcode & 0xFFF)
 		break
 	case 0x3000:
 		if registers[x] == uint8(opcode&0xFF) {
@@ -177,7 +177,7 @@ func executeInstruction(opcode uint) {
 		mem_register = (opcode & 0xFFF)
 		break
 	case 0xB000:
-		ip = opcode&0xFFF + uint(registers[0])
+		ip = uint16(opcode&0xFFF + uint(registers[0]))
 		break
 	case 0xC000:
 		randN := uint(rand.Intn(256))
